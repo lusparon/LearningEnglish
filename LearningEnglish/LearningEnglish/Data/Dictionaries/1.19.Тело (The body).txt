@@ -1,0 +1,20 @@
+around (her) waist#1\302#вокруг (еЄ) талии
+around (your) neck#1\303#вокруг (твоей) шеи
+blow (your) nose#1\304#высморкатьс€
+brush (my) teeth#1\305#почистить (свои) зубы
+canТt believe (my) ears#1\306#не могу поверить своим ушам
+have (your) hair cut#1\307#постричьс€
+in (his) hand#1\308#в (его) руке
+in (my) stomach#1\309#в (моЄм) животе, желудке
+in (your) eyes#1\310#в (твоих) глазах
+in (your) mouth#1\311#в (твоЄм) рту
+on (his) knees#1\312#на (его) колен€х
+on (my) back#1\313#на (твоей) спине
+on (your) face#1\314#на (твоЄм) лице
+on (your) head#1\315#на (твоей) голове
+on (his) leg#1\316#на (его) ноге
+on (your) lips#1\317#на (твоих) губах
+on (your) shoulder#1\318#на (твоЄм) плече
+walk arm in arm#1\319#гул€ть вз€вшись за руки
+with (your) fingers#1\320#(своими) пальцами
+with (your) foot#1\321#(своей) ногой
