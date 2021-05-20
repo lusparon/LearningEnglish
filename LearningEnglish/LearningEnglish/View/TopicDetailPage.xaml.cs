@@ -29,7 +29,7 @@ namespace LearningEnglish
             return App.Database.GetWords().Where(w => w.TopicId == topicId).ToList();
         }
 
-        private async void WordsItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private  void WordsItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var word = e.SelectedItem as Word;
 
@@ -41,14 +41,14 @@ namespace LearningEnglish
             //wordsList.SelectedItem = null;
         }
 
-        private void WordsItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            var word = e.Item as Word;
-
-            var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
-            var path = Path.Combine("Sounds", word.Mp3Path + ".mp3");
-            player.Load(path);
-            player.Play();
-        }
+        //private void WordsItemTapped(object sender, ItemTappedEventArgs e)
+        //{
+        //    var word = e.Item as Word;
+            
+        //    var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+        //    var path = Path.Combine("Sounds", word.Mp3Path + ".mp3");
+        //    player.Load(path);
+        //    player.Play();
+        //}
     }
 }

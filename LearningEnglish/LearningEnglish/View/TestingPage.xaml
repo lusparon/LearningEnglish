@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LearningEnglish.TestingPage"
+             Title="{Binding Name}">
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Button x:Name="taskName" TextColor="Black" BackgroundColor="White" FontAttributes="Italic" VerticalOptions="Center" FontSize="20" Clicked="TaskNameClicked" />
+            <Button x:Name="answer1" Clicked="AnswerClicked"></Button>
+            <Button x:Name="answer2" Clicked="AnswerClicked"></Button>
+            <Button x:Name="answer3" Clicked="AnswerClicked"></Button>
+            <Button x:Name="answer4" Clicked="AnswerClicked"></Button>
+            <Button x:Name="answer5" Clicked="AnswerClicked"></Button>
+            <ProgressBar x:Name="progressBar" Progress="0" WidthRequest="300" HeightRequest="20" VerticalOptions="Center" HorizontalOptions="Center" ></ProgressBar>
+            <Label x:Name="progressLabel"></Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
