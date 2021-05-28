@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using LearningEnglish.Models;
 
 namespace LearningEnglish
 {
@@ -14,11 +15,12 @@ namespace LearningEnglish
     public partial class TestingPage : ContentPage
     {
         private List<Word> _words;
-        
-        int wayOfControl; // Число от 1 до 4 – номер способа контроля.
+                
         int taskCounter; // Количество показанных заданий.
-        int mistakesCounter; // Количество допущенных ошибок.
         int localMistakesCounter; // Количество допущенных ошибок в пределах одного задания.
+        int mistakesCounter; // Количество допущенных ошибок.
+        int wayOfControl; // Число от 1 до 4 – номер способа контроля.
+        string nameOfTopic;
         int correctAnswersOnFirstAttempt; // Количество заданий, на которые был дан верный ответ с первой попытки.
         int SZ; // Общее количество слов, по которым ведётся тестирование.
         double rating; // Рейтинг -- результат прохождения тестирования.
@@ -28,8 +30,17 @@ namespace LearningEnglish
         public TestingPage(Topic topic, int controlMethodId)
         {
             InitializeComponent();
+            //statistic = new TestStatistic
+            //{
+            //    WayOfControl = controlMethodId,
+            //    CorrectAnswersOnFirstAttempt = 0,
+            //    MistakesCounter = 0,
+            //    Rating = 0,
+            //    SZ = _words.Count()
+            //};
             BindingContext = topic;
             wayOfControl = controlMethodId;
+            nameOfTopic = topic.Name;
             taskCounter = 0;
             correctAnswersOnFirstAttempt = 0;
             mistakesCounter = 0;
@@ -127,10 +138,10 @@ namespace LearningEnglish
                     correctAnswersOnFirstAttempt++;
                 switch (localMistakesCounter)
                 {
-                    case 0: rating += (double)50 / SZ; break;
-                    case 1: rating += (double)25 / SZ; break;
-                    case 2: rating += 12.5 / SZ; break;
-                    case 3: rating += 6.25 / SZ; break;
+                    case 0: rating += (double)100 / SZ; break;
+                    case 1: rating += (double)50 / SZ; break;
+                    case 2: rating += (double)25 / SZ; break;
+                    case 3: rating += 12.5 / SZ; break;
                     case 4: break;
                 }
                 // Если тестирование не завершено, выводим следующее задание.
@@ -139,7 +150,17 @@ namespace LearningEnglish
                 // Если тестирование завершено, передаём результаты
                 else
                 {
-                    await Navigation.PopAsync();
+                    for (var i = 1; i < 6; i++)
+                        ((Button)Content.FindByName("answer" + i)).IsEnabled = false;
+                    await Navigation.PushAsync(new TestingResultPage(new TestStatistic 
+                    {
+                        WayOfControl = wayOfControl,
+                        CorrectAnswersOnFirstAttempt = correctAnswersOnFirstAttempt,
+                        MistakesCounter = mistakesCounter,
+                        Rating = Math.Round(rating,2),
+                        SZ = SZ,
+                        TopicName = nameOfTopic
+                    }));
                 }
             }
             else if (btn.BackgroundColor != Color.Red)

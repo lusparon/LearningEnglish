@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LearningEnglish.TestingResultPage"
+             Title="{Binding TopicName}">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.1*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="0.1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label Text="Общее количество слов" Grid.Column="1" Grid.Row="0"></Label>
+            <Label Text="{Binding SZ}" Grid.Column="2" Grid.Row="0"></Label>
+            
+            <Label Text="Верных ответов" Grid.Column="1" Grid.Row="1"></Label>
+            <Label Text="{Binding CorrectAnswersOnFirstAttempt}" Grid.Column="2" Grid.Row="1"></Label>
+
+            <Label Text="Ошибок" Grid.Column="1" Grid.Row="2"></Label>
+            <Label Text="{Binding MistakesCounter}" Grid.Column="2" Grid.Row="2"></Label>
+
+            <Label Text="Рейтинг" Grid.Column="1" Grid.Row="3"></Label>
+            <Label Text="{Binding Rating}" Grid.Column="2" Grid.Row="3"></Label>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
