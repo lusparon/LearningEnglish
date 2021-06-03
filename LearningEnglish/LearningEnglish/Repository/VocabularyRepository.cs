@@ -30,17 +30,30 @@ namespace LearningEnglish
         //{
         //    return database.Delete<Topic>(id);
         //}
-        //public int SaveItem(Topic item)
-        //{
-        //    if (item.Id != 0)
-        //    {
-        //        database.Update(item);
-        //        return item.Id;
-        //    }
-        //    else
-        //    {
-        //        return database.Insert(item);
-        //    }
-        //}
+        public int SaveResult(Result item)
+        {
+            if (item.Id != 0)
+            {
+                database.Update(item);
+                return item.Id;
+            }
+            else
+            {
+                return database.Insert(item);
+            }
+        }
+        public void CreateTableResult()
+        {
+            var x = database.CreateTable<Result>();
+        }
+
+        public void DropTableResult()
+        {
+            var x = database.DropTable<Result>();
+        }
+        public IEnumerable<Result> GetResults()
+        {
+            return database.Table<Result>().ToList();
+        }
     }
 }

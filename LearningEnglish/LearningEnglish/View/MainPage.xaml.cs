@@ -12,7 +12,7 @@ namespace LearningEnglish
     {
         public MainPage()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
 
         private async void ButtonTeachingClick(object sender, EventArgs e)
@@ -23,6 +23,11 @@ namespace LearningEnglish
         private async void ButtonControlClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new ControlPage());
+        }
+
+        private async void ButtonResultsClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ResultsPage());
         }
     }
 }

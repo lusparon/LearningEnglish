@@ -2,28 +2,21 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
-             x:Class="LearningEnglish.TestingPage"
-             Title="{Binding Name}">
-    
+             x:Class="LearningEnglish.ResultsPage">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.*"/>
+                <RowDefinition Height="0.05*"/>
                 <RowDefinition Height="0.1*"/>
-                <RowDefinition Height="0.1*"/>
-                <RowDefinition Height="0.1*"/>
-                <RowDefinition Height="0.1*"/>
-                <RowDefinition Height="0.1*"/>
-                <RowDefinition Height="0.1*"/>
-                <RowDefinition Height="0.1*"/>
-                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.9*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.01*"/>
                 <ColumnDefinition Width="0.9*"/>
                 <ColumnDefinition Width="0.01*"/>
             </Grid.ColumnDefinitions>
-            <magic:GradientView VerticalOptions="FillAndExpand" Grid.RowSpan="9" Grid.ColumnSpan="3">
+            <magic:GradientView VerticalOptions="FillAndExpand" Grid.RowSpan="4" Grid.ColumnSpan="3">
                 <magic:GradientView.GradientSource>
                     <magic:CssGradientSource>
                         <x:String>
@@ -35,26 +28,35 @@
                 </magic:GradientView.GradientSource>
             </magic:GradientView>
 
-            <Button x:Name="taskName" TextColor="Black" BackgroundColor="White" 
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    FontAttributes="Italic" 
-                    VerticalOptions="Center" 
-                    FontSize="20" 
-                    Clicked="TaskNameClicked" />
-            <Button x:Name="answer1" Grid.Row="2" Grid.Column="1" BackgroundColor="White" TextColor="Black" Clicked="AnswerClicked"></Button>
-            <Button x:Name="answer2" Grid.Row="3" Grid.Column="1" BackgroundColor="White" TextColor="Black" Clicked="AnswerClicked"></Button>
-            <Button x:Name="answer3" Grid.Row="4" Grid.Column="1" BackgroundColor="White" TextColor="Black" Clicked="AnswerClicked"></Button>
-            <Button x:Name="answer4" Grid.Row="5" Grid.Column="1" BackgroundColor="White" TextColor="Black" Clicked="AnswerClicked"></Button>
-            <Button x:Name="answer5" Grid.Row="6" Grid.Column="1" BackgroundColor="White" TextColor="Black" Clicked="AnswerClicked"></Button>
-            <ProgressBar x:Name="progressBar" Progress="0" WidthRequest="400" 
-                         Grid.Row="7"
-                         Grid.Column="1"
-                         HeightRequest="20"                         
-                         ProgressColor="Green"
-                         VerticalOptions="FillAndExpand" 
-                         HorizontalOptions="FillAndExpand" ></ProgressBar>
-            <Label x:Name="progressLabel" Grid.Row="8" Grid.Column="1" TextColor="Black" FontSize="20" HorizontalTextAlignment="Center"></Label>
+            <Label Text="Выберите уровень:" TextColor="White" Grid.Row="1" Grid.Column="1" FontAttributes="Italic" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="20"></Label>
+
+            <Picker x:Name="levelNames"  Grid.Row="2" Grid.Column="1" Title="Уровень" HorizontalTextAlignment="Center"  SelectedIndexChanged="LevelSelectedIndexChanged">
+            </Picker>
+
+            <ListView x:Name="resultsList" ItemSelected="ResultsItemSelected"  Grid.Row="3" Grid.Column="1" HasUnevenRows="True" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="15" >
+                                <Label Text="{Binding TopicName}" TextColor="Black"></Label>
+                                <Label Text="{Binding WayOfControlName}" TextColor="Black"></Label>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding CorrectAnswers}" TextColor="Black"></Label>
+                                    <Label Text="/" TextColor="Black"></Label>
+                                    <Label Text="{Binding TotalWordsCount}" TextColor="Black"></Label>
+                                    <Label Text="(ошибок : " TextColor="Black"></Label>
+                                    <Label Text="{Binding Mistakes}" TextColor="Black"></Label>
+                                    <Label Text=") -- Рейтинг : " TextColor="Black"></Label>
+                                    <Label Text="{Binding Rating}" TextColor="Black"></Label>
+                                </StackLayout>
+                            </StackLayout>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Удалить" Clicked="DeleteClicked" IsDestructive="True"></MenuItem>
+                            </ViewCell.ContextActions>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

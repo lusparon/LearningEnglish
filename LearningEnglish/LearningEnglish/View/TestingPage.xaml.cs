@@ -14,33 +14,35 @@ namespace LearningEnglish
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TestingPage : ContentPage
     {
-        private List<Word> _words;
-                
+        private List<Word> _words;// Список заданий/слов
         int taskCounter; // Количество показанных заданий.
         int localMistakesCounter; // Количество допущенных ошибок в пределах одного задания.
         int mistakesCounter; // Количество допущенных ошибок.
         int wayOfControl; // Число от 1 до 4 – номер способа контроля.
-        string nameOfTopic;
+        int topicId;
+        string topicName;
         int correctAnswersOnFirstAttempt; // Количество заданий, на которые был дан верный ответ с первой попытки.
         int SZ; // Общее количество слов, по которым ведётся тестирование.
         double rating; // Рейтинг -- результат прохождения тестирования.
-        List<Word> used;
-        Word currTask ;
+        List<Word> used; // Список выполненных заданий
+        Word currTask ; // Текущее задание/ слово
         List<Word> answers; // ответы на текущее задание
+        Dictionary<int, string> wayOfControlName;
+        int levelId;
+        bool f;
         public TestingPage(Topic topic, int controlMethodId)
         {
             InitializeComponent();
-            //statistic = new TestStatistic
-            //{
-            //    WayOfControl = controlMethodId,
-            //    CorrectAnswersOnFirstAttempt = 0,
-            //    MistakesCounter = 0,
-            //    Rating = 0,
-            //    SZ = _words.Count()
-            //};
+            wayOfControlName = new Dictionary<int, string> {
+                 {1, "Рус - Англ" },
+                 {2, "Англ - Рус" },
+                 {3, "Аудио - Рус" }
+            };
+            levelId = topic.Level;
             BindingContext = topic;
+            topicName = topic.Name;
             wayOfControl = controlMethodId;
-            nameOfTopic = topic.Name;
+            topicId = topic.Id;
             taskCounter = 0;
             correctAnswersOnFirstAttempt = 0;
             mistakesCounter = 0;
@@ -48,10 +50,8 @@ namespace LearningEnglish
             _words = GetWords(topic.Id);
             SZ = _words.Count();
             progressLabel.Text = string.Format("Выполнено {0} из {1} ({2}%)", taskCounter, SZ, 0);
-
             used = new List<Word>();
             NextTask();
-
         }
 
         private List<Word> GetWords(int topicId)
@@ -61,8 +61,8 @@ namespace LearningEnglish
 
         private void NextTask()
         {
-            ClearButtons();
-            
+            f = true;
+            ClearButtons();            
             Random rnd = new Random();
             localMistakesCounter = 0;
 
@@ -129,10 +129,10 @@ namespace LearningEnglish
             if (currTask == selectedAnswer)
             {
                 taskCounter++;
-                progressBar.Progress = taskCounter*1.0/SZ;
+                progressBar.Progress = taskCounter * 1.0 / SZ;
 
                 double percent = Math.Round(taskCounter * 100.0 / SZ, 2);
-                progressLabel.Text = string.Format("Выполнено {0} из {1} ({2}%)", taskCounter, SZ,percent);
+                progressLabel.Text = string.Format("Выполнено {0} из {1} ({2}%)", taskCounter, SZ, percent);
 
                 if (localMistakesCounter == 0)
                     correctAnswersOnFirstAttempt++;
@@ -152,22 +152,33 @@ namespace LearningEnglish
                 {
                     for (var i = 1; i < 6; i++)
                         ((Button)Content.FindByName("answer" + i)).IsEnabled = false;
-                    await Navigation.PushAsync(new TestingResultPage(new TestStatistic 
+                    await Navigation.PushAsync(new TestingResultPage(new Result
                     {
-                        WayOfControl = wayOfControl,
+                        LevelId = levelId,
+                        WayOfControlName = wayOfControlName[wayOfControl],
+                        WayOfControlId = wayOfControl,
                         CorrectAnswersOnFirstAttempt = correctAnswersOnFirstAttempt,
-                        MistakesCounter = mistakesCounter,
-                        Rating = Math.Round(rating,2),
-                        SZ = SZ,
-                        TopicName = nameOfTopic
+                        Mistakes = mistakesCounter,
+                        Rating = Math.Round(rating, 2),
+                        TotalWordsCount = SZ,
+                        TopicId = topicId,
+                        TopicName = topicName,
+                        CorrectAnswers = SZ - mistakesCounter
                     }));
                 }
             }
-            else if (btn.BackgroundColor != Color.Red)
+            else
             {
-                btn.BackgroundColor = Color.Red;
-                mistakesCounter++;
-                localMistakesCounter++;
+                if (f)
+                {
+                    mistakesCounter++;
+                    f = false;
+                }
+                if (btn.BackgroundColor != Color.Red)
+                {
+                    btn.BackgroundColor = Color.Red;
+                    localMistakesCounter++;
+                }
             }
         }
 
