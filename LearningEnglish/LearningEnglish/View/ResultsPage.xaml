@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
-             x:Class="LearningEnglish.ResultsPage">
+             x:Class="LearningEnglish.ResultsPage"
+             Title="Результаты">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -38,16 +39,16 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="15" >
-                                <Label Text="{Binding TopicName}" TextColor="Black"></Label>
-                                <Label Text="{Binding WayOfControlName}" TextColor="Black"></Label>
+                                <Label Text="{Binding TopicName}" TextColor="Black" FontSize="25"></Label>
+                                <Label Text="{Binding WayOfControlName}" TextColor="Black" FontSize="25"></Label>
                                 <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding CorrectAnswers}" TextColor="Black"></Label>
-                                    <Label Text="/" TextColor="Black"></Label>
-                                    <Label Text="{Binding TotalWordsCount}" TextColor="Black"></Label>
-                                    <Label Text="(ошибок : " TextColor="Black"></Label>
-                                    <Label Text="{Binding Mistakes}" TextColor="Black"></Label>
-                                    <Label Text=") -- Рейтинг : " TextColor="Black"></Label>
-                                    <Label Text="{Binding Rating}" TextColor="Black"></Label>
+                                    <Label Text="{Binding CorrectAnswers}" TextColor="Black" FontSize="20"></Label>
+                                    <Label Text="/" TextColor="Black" FontSize="20"></Label>
+                                    <Label Text="{Binding TotalWordsCount}" FontSize="20" TextColor="Black"></Label>
+                                    <Label Text="(ошибок : " TextColor="Black" FontSize="20"></Label>
+                                    <Label Text="{Binding Mistakes}" TextColor="Black" FontSize="20"></Label>
+                                    <Label Text=") -- Рейтинг : " TextColor="Black" FontSize="20"></Label>
+                                    <Label Text="{Binding Rating}" TextColor="Black" FontSize="20"></Label>
                                 </StackLayout>
                             </StackLayout>
                             <ViewCell.ContextActions>

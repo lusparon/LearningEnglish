@@ -30,16 +30,16 @@
                     </magic:CssGradientSource>
                 </magic:GradientView.GradientSource>
             </magic:GradientView>
-            <Label Text="Общее количество слов" Grid.Column="1" Grid.Row="0" HorizontalOptions="StartAndExpand" TextColor="Black" FontSize="22"></Label>
-            <Label Text="{Binding TotalWordsCount}" Grid.Column="2" Grid.Row="0" HorizontalOptions="StartAndExpand" TextColor="Black" FontSize="22"></Label>
+            <Label Text="Общее количество слов" Grid.Column="1" Grid.Row="0" HorizontalOptions="StartAndExpand" TextColor="Black" FontSize="30"></Label>
+            <Label Text="{Binding TotalWordsCount}" Grid.Column="2" Grid.Row="0" HorizontalOptions="StartAndExpand" TextColor="Black" FontSize="30"></Label>
 
-            <Label Text="Верных ответов" Grid.Column="1" Grid.Row="1" HorizontalOptions="StartAndExpand" TextColor="Black" FontSize="22"></Label>
-            <Label Text="{Binding CorrectAnswers}" Grid.Column="2" Grid.Row="1" TextColor="Black" FontSize="22"></Label>
+            <Label Text="Верных ответов" Grid.Column="1" Grid.Row="1" HorizontalOptions="StartAndExpand" TextColor="Black" FontSize="30"></Label>
+            <Label Text="{Binding CorrectAnswers}" Grid.Column="2" Grid.Row="1" TextColor="Black" FontSize="30"></Label>
 
-            <Label Text="Ошибок" Grid.Column="1" Grid.Row="2" HorizontalOptions="StartAndExpand" TextColor="Black" FontSize="22"></Label>
-            <Label Text="{Binding Mistakes}" Grid.Column="2" Grid.Row="2" TextColor="Black" FontSize="22"></Label>
+            <Label Text="Ошибок" Grid.Column="1" Grid.Row="2" HorizontalOptions="StartAndExpand" TextColor="Black" FontSize="30"></Label>
+            <Label Text="{Binding Mistakes}" Grid.Column="2" Grid.Row="2" TextColor="Black" FontSize="30"></Label>
 
-            <Label Text="Рейтинг" Grid.Column="1" Grid.Row="3" HorizontalOptions="StartAndExpand" TextColor="Black" FontSize="22"></Label>
+            <Label Text="Рейтинг" Grid.Column="1" Grid.Row="3" HorizontalOptions="StartAndExpand" TextColor="Black" FontSize="30"></Label>
             <Label Text="{Binding Rating}" Grid.Column="2" Grid.Row="3" TextColor="Black" FontSize="22"></Label>
         </Grid>
     </ContentPage.Content>

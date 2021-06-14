@@ -174,9 +174,9 @@ namespace LearningEnglish
                     mistakesCounter++;
                     f = false;
                 }
-                if (btn.BackgroundColor != Color.Red)
+                if (btn.BackgroundColor != Color.Gray)
                 {
-                    btn.BackgroundColor = Color.Red;
+                    btn.BackgroundColor = Color.Gray;
                     localMistakesCounter++;
                 }
             }

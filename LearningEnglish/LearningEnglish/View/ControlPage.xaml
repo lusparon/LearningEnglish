@@ -37,8 +37,11 @@
             <ListView x:Name="topicsList" ItemSelected="TopicsItemSelected" Grid.Row="3" Grid.Column="1" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Name}" Detail="{Binding TopicId}" TextColor="White">
-                        </TextCell>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding Name}" TextColor="Black" FontSize="20"></Label>
+                            </StackLayout>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

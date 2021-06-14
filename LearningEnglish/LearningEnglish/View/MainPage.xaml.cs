@@ -29,5 +29,10 @@ namespace LearningEnglish
         {
             await Navigation.PushAsync(new ResultsPage());
         }
+
+        private async void ButtonSettingsClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SettingsPage());
+        }
     }
 }

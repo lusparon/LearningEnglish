@@ -31,8 +31,19 @@
             <ListView x:Name="wordsList" Grid.Row="1" Grid.Column="1" ItemSelected="WordsItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Rus}" Detail="{Binding Eng}" TextColor="White" >
-                        </TextCell>
+                        <ViewCell>
+                            <Grid Padding="15">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.1*" />
+                                    <ColumnDefinition Width="0.1*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>                                
+                                <Label Text="{Binding Rus}" TextColor="Black" FontSize="18" Grid.Row="0" Grid.Column="0"></Label>
+                                <Label Text="{Binding Eng}" TextColor="White" FontSize="18" Grid.Row="0" Grid.Column="1"></Label>
+                            </Grid>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
