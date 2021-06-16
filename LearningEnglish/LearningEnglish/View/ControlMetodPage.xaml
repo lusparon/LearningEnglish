@@ -8,16 +8,18 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.*"/>
-                <RowDefinition Height="0.05*"/>
                 <RowDefinition Height="0.1*"/>
-                <RowDefinition Height="0.9*"/>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.3*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.01*"/>
                 <ColumnDefinition Width="0.9*"/>
                 <ColumnDefinition Width="0.01*"/>
             </Grid.ColumnDefinitions>
-            <magic:GradientView VerticalOptions="FillAndExpand" Grid.RowSpan="4" Grid.ColumnSpan="3">
+            <magic:GradientView VerticalOptions="FillAndExpand" Grid.RowSpan="6" Grid.ColumnSpan="3">
                 <magic:GradientView.GradientSource>
                     <magic:CssGradientSource>
                         <x:String>
@@ -28,10 +30,11 @@
                     </magic:CssGradientSource>
                 </magic:GradientView.GradientSource>
             </magic:GradientView>
-            <Label Text="Выберите способ контроля:" TextColor="White" Grid.Row="1" Grid.Column="1" FontAttributes="Italic" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="20"></Label>
-
-            <Picker x:Name="ControlMethodsNames"  Grid.Row="2" Grid.Column="1" Title="Способ контроля" HorizontalTextAlignment="Center"  SelectedIndexChanged="ControlMethodSelectedIndexChanged">
-            </Picker>
+            <Label Text="Выберите способ контроля:" TextColor="White" Grid.Row="1" Grid.Column="1" FontAttributes="Italic" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="30"></Label>
+            
+            <Button x:Name="rus_eng" Grid.Row="2" Grid.Column="1"    BackgroundColor="White" TextColor="Black" Clicked="rus_eng_Clicked"  FontSize="25"   Text="Рус - Англ"></Button>
+            <Button x:Name="eng_rus" Grid.Row="3" Grid.Column="1"    BackgroundColor="White" TextColor="Black" Clicked="eng_rus_Clicked" FontSize="25"   Text="Англ - Рус"></Button>
+            <Button x:Name="audio_rus" Grid.Row="4" Grid.Column="1"  BackgroundColor="White" TextColor="Black" Clicked="audio_rus_Clicked"  FontSize="25" Text="Аудио - Рус"></Button>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

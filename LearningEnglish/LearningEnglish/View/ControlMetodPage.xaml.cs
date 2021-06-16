@@ -19,25 +19,40 @@ namespace LearningEnglish
             InitializeComponent();
 
             _selectedTopic = topic;
-            _controlMethods = GetControlMethods();
-            foreach (var method in _controlMethods)
-                ControlMethodsNames.Items.Add(method.Value);
+            //_controlMethods = GetControlMethods();
+            //foreach (var method in _controlMethods)
+            //    ControlMethodsNames.Items.Add(method.Value);
 
         }
-        private async void ControlMethodSelectedIndexChanged(object sender, EventArgs e)
+        //private async void ControlMethodSelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    var name = ControlMethodsNames.Items[ControlMethodsNames.SelectedIndex];
+        //    var controlMethod = GetControlMethods().Single(l => l.Value == name);
+        //    await Navigation.PushAsync(new TestingPage(_selectedTopic, controlMethod.Key));
+        //}
+        //
+        //private Dictionary<int, string> GetControlMethods()
+        //{
+        //    return new Dictionary<int, string> {
+        //         {1, "Рус - Англ" },
+        //         {2, "Англ - Рус" },
+        //         {3, "Аудио - Рус" }
+        //    };
+        //}
+
+        private async void rus_eng_Clicked(object sender, EventArgs e)
         {
-            var name = ControlMethodsNames.Items[ControlMethodsNames.SelectedIndex];
-            var controlMethod = GetControlMethods().Single(l => l.Value == name);
-            await Navigation.PushAsync(new TestingPage(_selectedTopic, controlMethod.Key));
+            await Navigation.PushAsync(new TestingPage(_selectedTopic, 1));
         }
 
-        private Dictionary<int, string> GetControlMethods()
+        private async void eng_rus_Clicked(object sender, EventArgs e)
         {
-            return new Dictionary<int, string> {
-                 {1, "Рус - Англ" },
-                 {2, "Англ - Рус" },
-                 {3, "Аудио - Рус" }
-            };
+            await Navigation.PushAsync(new TestingPage(_selectedTopic, 2));
+        }
+
+        private async void audio_rus_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TestingPage(_selectedTopic, 3));
         }
     }
 }

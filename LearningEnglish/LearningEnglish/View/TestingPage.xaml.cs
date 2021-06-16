@@ -30,6 +30,8 @@ namespace LearningEnglish
         Dictionary<int, string> wayOfControlName;
         int levelId;
         bool f;
+        Setting setting1;
+        Setting setting2;
         public TestingPage(Topic topic, int controlMethodId)
         {
             InitializeComponent();
@@ -51,6 +53,8 @@ namespace LearningEnglish
             SZ = _words.Count();
             progressLabel.Text = string.Format("Выполнено {0} из {1} ({2}%)", taskCounter, SZ, 0);
             used = new List<Word>();
+            setting1 = App.database.GetSetting1();
+            setting2 = App.database.GetSetting2();
             NextTask();
         }
 
@@ -102,7 +106,8 @@ namespace LearningEnglish
                     taskName.Text = currTask.Eng;
                     for (var i = 1; i < 6; i++)
                         ((Button)Content.FindByName("answer" + i)).Text = answers[i-1].Rus;
-                    PlayAudio();
+                    if(setting1.Value)
+                        PlayAudio();
                     break;
                 case 3:
                     taskName.Text = "Воспроизвести повторно";
@@ -184,7 +189,7 @@ namespace LearningEnglish
 
         private void TaskNameClicked(object sender, EventArgs e)
         {
-            if (wayOfControl != 1)
+            if ((wayOfControl == 2 && setting1.Value) || (wayOfControl == 3 && setting2.Value))
                 PlayAudio();
         }
     }

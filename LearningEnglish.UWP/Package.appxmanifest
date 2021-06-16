@@ -9,7 +9,7 @@
   <Identity
     Name="20cf9ea2-6c28-45cb-b026-9af3488ef464"
     Publisher="CN=Tyzyhyan.l"
-    Version="1.0.0.0" />
+    Version="1.0.7.0" />
 
   <mp:PhoneIdentity PhoneProductId="20cf9ea2-6c28-45cb-b026-9af3488ef464" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 

@@ -51,7 +51,7 @@
             <Button BackgroundColor="White" TextColor="White" Opacity="0.15" Grid.Row="6" Grid.Column="1"  VerticalOptions="FillAndExpand" Clicked="ButtonSettingsClicked"/>
 
             <Label Text="ПОМОЩЬ" TextColor="White" Grid.Row="7" Grid.Column="1" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="20" />
-            <Button BackgroundColor="White" TextColor="White" Opacity="0.15" Grid.Row="7" Grid.Column="1"  VerticalOptions="FillAndExpand"/>
+            <Button BackgroundColor="White" TextColor="White" Opacity="0.15" Grid.Row="7" Grid.Column="1"  VerticalOptions="FillAndExpand" Clicked="ButtonHelpClicked"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

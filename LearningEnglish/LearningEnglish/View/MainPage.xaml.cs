@@ -34,5 +34,10 @@ namespace LearningEnglish
         {
             await Navigation.PushAsync(new SettingsPage());
         }
+
+        private async void ButtonHelpClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new HelpPage());
+        }
     }
 }

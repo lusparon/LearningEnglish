@@ -28,11 +28,11 @@
                 </magic:GradientView.GradientSource>
             </magic:GradientView>
 
-            <ListView x:Name="wordsList" Grid.Row="1" Grid.Column="1" ItemSelected="WordsItemSelected">
+            <ListView x:Name="wordsList" Grid.Row="1" Grid.Column="1" ItemSelected="WordsItemSelected" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
-                            <Grid Padding="15">
+                        <ViewCell >
+                            <Grid Padding="5">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="0.1*" />
                                     <ColumnDefinition Width="0.1*" />

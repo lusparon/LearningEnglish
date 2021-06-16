@@ -40,13 +40,13 @@
                     Grid.Column="1"
                     FontAttributes="Italic" 
                     VerticalOptions="Center" 
-                    FontSize="30" 
+                    FontSize="20" 
                     Clicked="TaskNameClicked" />
-            <Button x:Name="answer1" Grid.Row="2" Grid.Column="1" BackgroundColor="White" TextColor="Black" Clicked="AnswerClicked" FontSize="25"></Button>
-            <Button x:Name="answer2" Grid.Row="3" Grid.Column="1" BackgroundColor="White" TextColor="Black" Clicked="AnswerClicked" FontSize="25"></Button>
-            <Button x:Name="answer3" Grid.Row="4" Grid.Column="1" BackgroundColor="White" TextColor="Black" Clicked="AnswerClicked" FontSize="25"></Button>
-            <Button x:Name="answer4" Grid.Row="5" Grid.Column="1" BackgroundColor="White" TextColor="Black" Clicked="AnswerClicked" FontSize="25"></Button>
-            <Button x:Name="answer5" Grid.Row="6" Grid.Column="1" BackgroundColor="White" TextColor="Black" Clicked="AnswerClicked" FontSize="25"></Button>
+            <Button x:Name="answer1" Grid.Row="2" Grid.Column="1" BackgroundColor="White" TextColor="Black" Clicked="AnswerClicked" FontSize="17" ></Button>
+            <Button x:Name="answer2" Grid.Row="3" Grid.Column="1" BackgroundColor="White" TextColor="Black" Clicked="AnswerClicked" FontSize="17"></Button>
+            <Button x:Name="answer3" Grid.Row="4" Grid.Column="1" BackgroundColor="White" TextColor="Black" Clicked="AnswerClicked" FontSize="17"></Button>
+            <Button x:Name="answer4" Grid.Row="5" Grid.Column="1" BackgroundColor="White" TextColor="Black" Clicked="AnswerClicked" FontSize="17"></Button>
+            <Button x:Name="answer5" Grid.Row="6" Grid.Column="1" BackgroundColor="White" TextColor="Black" Clicked="AnswerClicked" FontSize="17"></Button>
             <ProgressBar x:Name="progressBar" Progress="0" WidthRequest="400" 
                          Grid.Row="7"
                          Grid.Column="1"

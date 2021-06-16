@@ -2,26 +2,23 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
              xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
-             x:Class="LearningEnglish.SettingsPage">
+             x:Class="LearningEnglish.SettingsPage"
+             Title="Настройки">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.*"/>
-                <RowDefinition Height="0.4*"/>
                 <RowDefinition Height="0.1*"/>
-                <RowDefinition Height="0.2*"/>
-                <RowDefinition Height="0.2*"/>
-                <RowDefinition Height="0.2*"/>
-                <RowDefinition Height="0.2*"/>
-                <RowDefinition Height="0.2*"/>
-                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.6*"/>
+                <RowDefinition Height="0.8*"/>
+                <RowDefinition Height="0.8*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.1*"/>
-                <ColumnDefinition Width="0.8*"/>
+                <ColumnDefinition Width="0.6*"/>
+                <ColumnDefinition Width="0.1*"/>                
                 <ColumnDefinition Width="0.1*"/>
             </Grid.ColumnDefinitions>
-            <magic:GradientView VerticalOptions="FillAndExpand" Grid.RowSpan="9" Grid.ColumnSpan="3">
+            <magic:GradientView VerticalOptions="FillAndExpand" Grid.RowSpan="4" Grid.ColumnSpan="4">
                 <magic:GradientView.GradientSource>
                     <magic:CssGradientSource>
                         <x:String>
@@ -33,7 +30,11 @@
                 </magic:GradientView.GradientSource>
             </magic:GradientView>
 
-            <CheckBox IsChecked="True" Grid.Row="1" Grid.Column="1"></CheckBox>
+            <Label Text="Воспроизводить аудиодорожку в режиме Англ - Рус ?" Grid.Row="1" Grid.Column="1" TextColor="Black" HorizontalOptions="StartAndExpand" FontSize="25"></Label>
+            <CheckBox x:Name="Setting1" IsChecked="True" Grid.Row="1" Grid.Column="2" Color="Black" ScaleX="1.2" ScaleY="1.2" CheckedChanged="Setting1_CheckedChanged"></CheckBox>
+
+            <Label Text="Разрешить повторное воспроизведение аудиодорожки в режиме Аудио - Рус ?" Grid.Row="2" Grid.Column="1" TextColor="Black" HorizontalOptions="StartAndExpand" FontSize="25"></Label>
+            <CheckBox x:Name="Setting2" IsChecked="True" Grid.Row="2" Grid.Column="2" Color="Black" ScaleX="1.2" ScaleY="1.2" CheckedChanged="Setting2_CheckedChanged"></CheckBox>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
